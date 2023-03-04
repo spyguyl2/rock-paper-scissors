@@ -56,20 +56,23 @@ function playRound (playerChoice, computerSelection) {
 
 function game() {
     for (let x = 1; x <= 5; x++) {
-        console.log(`Round ${x} Player: ${playerScore} Computer: ${computerScore}`)
+        console.log(`Round ${x} Player: ${playerScore} Computer: ${computerScore}`);
+        playRound();
         if (playerScore == 3) {
             console.log('You won!');
+            x = 6;
         }
         else if (computerScore == 3) {
             console.log('Oof. You lost.');
+            x = 6;
         }
-        else if (computerScore > playerScore) {
-            console.log('Game over, you lost.')
+        else if (x == 5 && computerScore > playerScore) {
+            console.log('Game over, you lost.');
         }
-        else if (playerScore > computerScore) {
-            console.log('Game over, you win!')
+        else if (x == 5 && playerScore > computerScore) {
+            console.log('Game over, you win!');
         }
-        else playRound();
+        else continue;
     }
 }
 
