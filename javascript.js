@@ -1,7 +1,6 @@
 let computerChoice = "";
 let playerScore = 0;
 let computerScore = 0;
-
 function getComputerChoice () {
     let x = Math.floor(Math.random() * 3)
     switch (x) {
@@ -60,11 +59,15 @@ function game() {
         console.log(`Round ${x} Player: ${playerScore} Computer: ${computerScore}`)
         if (playerScore == 3) {
             console.log('You won!');
-            break;
         }
         else if (computerScore == 3) {
             console.log('Oof. You lost.');
-            break;
+        }
+        else if (computerScore > playerScore) {
+            console.log('Game over, you lost.')
+        }
+        else if (playerScore > computerScore) {
+            console.log('Game over, you win!')
         }
         else playRound();
     }
