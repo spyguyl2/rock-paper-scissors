@@ -1,18 +1,15 @@
-let computerChoice = "";
 let playerScore = 0;
 let computerScore = 0;
+
 function getComputerChoice () {
     let x = Math.floor(Math.random() * 3)
     switch (x) {
         case 0:
-            computerChoice = "ROCK"
-            break;
+            return "ROCK";
         case 1:
-            computerChoice = "PAPER"
-            break;
+            return "PAPER";
         case 2:
-            computerChoice = "SCISSORS"
-            break;
+            return "SCISSORS";
         default: 
             console.error("Check code, there\'s no reason for this message to ever appear.");
             break;
@@ -22,8 +19,9 @@ function getComputerChoice () {
 function playRound (playerChoice, computerSelection) {
     playerChoice = prompt('Select "ROCK", "PAPER", or "SCISSORS"!');
     playerChoice = playerChoice.toUpperCase();
-    getComputerChoice();
-    computerSelection = computerChoice;
+
+    computerSelection = getComputerChoice();
+
     if (playerChoice == computerSelection) {
         console.log('It\'s a tie! Both sides picked ' + playerChoice + '!');
     }
@@ -61,6 +59,7 @@ function game() {
         if (playerScore == 3) {
             console.log('You won!');
             x = 6;
+            
         }
         else if (computerScore == 3) {
             console.log('Oof. You lost.');
